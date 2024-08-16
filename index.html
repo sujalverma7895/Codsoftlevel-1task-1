@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujal Verma - Frontend Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .navbar {
+            background-color: #2b3d4f;
+            padding: 10px 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-in-out;
+        }
+
+        
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .brand h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #ffd700;
+        }
+
+        .navbar .brand p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar .nav-links li {
+            display: inline;
+        }
+
+        .navbar .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .navbar .nav-links li a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s;
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+        }
+
+        .navbar .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 32px;
+            color: #ffd700;
+        }
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .about .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2b3d4f;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .about .about-info {
+            max-width: 600px;
+        }
+
+        .about .about-info h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .about .about-info p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .about .contact-info p {
+            margin: 5px 0;
+        }
+
+        .about .contact-info i {
+            margin-right: 8px;
+        }
+
+        .languages, .expertise {
+            margin-top: 20px;
+        }
+
+        .languages h3, .expertise h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffd700;
+        }
+
+        .languages ul, .expertise ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .languages ul li, .expertise ul li {
+            margin-bottom: 5px;
+        }
+
+        .projects .project {
+            background: #1e1e1e;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, background 0.3s;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .projects .project:hover {
+            transform: translateY(-10px);
+            background: #2b3d4f;
+        }
+
+        .projects .project h3 {
+            margin-top: 0;
+        }
+
+        .projects .project img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .education, .interests, .connect {
+            text-align: center;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        .education p, .interests p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .connect {
+    background: #2b3d4f;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.connect h2 {
+    font-size: 28px;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.connect .social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.connect .social-links li {
+    display: inline;
+}
+
+.connect .social-links li a {
+    color: #ffd700;
+    font-size: 24px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.connect .social-links li a:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar" data-aos="fade-down">
+        <div class="container">
+            <div class="brand">
+                <h1>Sujal Verma</h1>
+                <p>Frontend Developer</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="about" class="about" data-aos="fade-up">
+        <div class="container">
+            <img src="./my2.jfif" alt="Sujal Verma" class="profile-photo animate__animated animate__zoomIn">
+            <div class="about-info">
+                <h2>About Me</h2>
+                <p>Passionate and dedicated React.js developer with a strong foundation in C. Seeking a responsible job opportunity to apply my knowledge and skills to contribute to an organization's success.</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> 7895134377</p>
+                    <p><i class="fas fa-envelope"></i> sujalsoni7895@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Krishna Nagar (Bulandshahr)</p>
+                </div>
+                <div class="languages">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>English</li>
+                        <li>Hindi</li>
+                    </ul>
+                </div>
+                <div class="expertise">
+                    <h3>Expertise</h3>
+                    <ul>
+                        <li>React JS</li>
+                        <li>Redux</li>
+                        <li>Javascript</li>
+                        <li>Typescript</li>
+                        <li>Bootstrap</li>
+                        <li>HTML & CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="projects" data-aos="fade-up">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Educational Game</h3>
+                <ul>
+                    <li><a href="https://sujalverma7895.github.io/Mathematical-equation-game/" target="_blank">Mathematical-equation-game</a></li>
+                    <li><a href="https://sujalverma7895.github.io/Chemical-equation-game/" target="_blank">Chemical-equation-game</a></li>
+                </ul>
+                <p>Developed a digital Mathematical problem solving Educational Game for children with React.js using HTML5, CSS3, Bootstrap, JavaScript, React.js.</p>
+            </div>
+            <div class="project">
+                <h3>Banking System</h3>
+                <ul>
+                    <li><a href="https://sujalverma7895.github.io/Banking-system-app/" target="_blank">Banking System</a></li>
+                </ul>
+                <p>Created an application with basic banking day to day activity related works i.e Create Account, Deposit/Withdraw/transfer in Accounts with HTML, CSS, JavaScript and React JS.</p>
+            </div>
+            <div class="project">
+                <h3>Todo Apps</h3>
+                <ul>
+                    <li><a href="https://sujalverma7895.github.io/Todo-list-app/" target="_blank">Todo Apps</a></li>
+                </ul>
+                <p>Created a customizable todo list application with features to add and delete items using HTML, CSS, JavaScript and React.</p>
+            </div>
+            <div class="project">
+                <h3>UI Clones of Website</h3>
+                <ul>
+                    <li><a href="https://sujalverma7895.github.io/Bike-dekho-clone/" target="_blank">Bike-dekho clone</a></li>
+                    <li><a href="https://sujalverma7895.github.io/code-craft-clone/" target="_blank">Codecraft Clone</a></li>
+                    <li><a href="https://sujalverma7895.github.io/youtube-clone" target="_blank">YouTube Clone</a></li>
+                    <li><a href="https://sujalverma7895.github.io/Netflix/" target="_blank">Netflix Clone</a></li>
+                </ul>
+                <p>Designed different UI clones of the website using only HTML and CSS.</p>
+            </div>
+        </div>
+    </section>
+    <section id="education" class="education" data-aos="fade-up">
+        <div class="container">
+            <h2>Education</h2>
+            <p><strong>Graduation:</strong> Currently pursuing a Bachelor of Computer Applications (BCA) at IP College, affiliated with CCS University in Bulandshahr, Uttar Pradesh. I am in my 5th semester and expected to graduate in 2025. My coursework includes subjects like Data Structures, Database Management Systems, Web Development, and Computer Networks, which have provided me with a solid foundation in computer science and practical coding skills.</p>
+            <p><strong>Secondary School Certificate (SSC):</strong> Completed my SSC from the CBSE Board with an 80% score. This phase of my education helped me develop a strong understanding of fundamental subjects including Mathematics, Science, and English, which are crucial for a career in technology.</p>
+            <p><strong>Higher Secondary Certificate (HSC):</strong> Completed my HSC from the CBSE Board with a 51% score. During this period, I focused on subjects such as Physics, Chemistry, and Mathematics, which prepared me for higher education in the field of computer applications.</p>
+        </div>
+    </section>
+    <section id="interests" class="interests" data-aos="fade-up">
+        <div class="container">
+            <h2>Interests</h2>
+            <p><strong>Exploring New Technologies:</strong> I have a deep passion for learning about the latest advancements in technology. This includes staying updated with new programming languages, frameworks, and tools that can enhance my skills as a developer. I enjoy experimenting with new tech trends and integrating them into my projects to create innovative solutions.</p>
+            <p><strong>Traveling:</strong> Traveling allows me to experience different cultures and environments, which broadens my perspective and creativity. I believe that exploring new places and meeting diverse people contribute to personal growth and inspire new ideas in my professional work. It also helps me unwind and return to my projects with a refreshed mind.</p>
+        </div>
+    </section>
+    <section id="connect" class="connect">
+        <div class="container">
+            <h2>Connect with Me</h2>
+            <ul class="social-links">
+                <li><a href="https://www.linkedin.com/in/sujal-verma-02b466272" target="_blank" class="fab fa-linkedin" aria-label="LinkedIn"></a></li>
+                <li><a href="https://github.com/sujalverma7895" target="_blank" class="fab fa-github" aria-label="GitHub"></a></li>
+                <li><a href="https://www.facebook.com/sujal.soni.75054?mibextid=LQQJ4d" target="_blank" class="fab fa-facebook" aria-label="Facebook"></a></li>
+                <li><a href="https://www.instagram.com/its_sujalsoni_?igsh=MTIzcmd0eGlvd2xwaQ%3D%3D&utm_source=qr" target="_blank" class="fab fa-instagram" aria-label="Instagram"></a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init();
+        });
+    </script>
+</body>
+</html>
